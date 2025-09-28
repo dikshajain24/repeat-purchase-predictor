@@ -1,0 +1,152 @@
+# 💄✨ Repeat Purchase Predictor — Beauty & Fashion E-commerce
+
+[![Hugging Face UI](https://img.shields.io/badge/Gradio-Live%20Demo-ff69b4?logo=gradio)](https://huggingface.co/spaces/dikshajain2406/repeat-purchase-ui)
+[![FastAPI](https://img.shields.io/badge/API-FastAPI-green?logo=fastapi)](https://dikshajain2406-repeat-purchase-api.hf.space/docs)
+
+Predict **customer repeat purchase probability** in fashion & beauty e-commerce using transparent behavioral features.  
+This project demonstrates a full-stack ML deployment: **FastAPI backend** + **Gradio UI frontend**, both hosted free on Hugging Face Spaces.  
+
+---
+
+## 🚀 Live Demos
+
+- 🌐 **Gradio App (Recruiter UI):**  
+  👉 [Repeat Purchase Predictor UI](https://huggingface.co/spaces/dikshajain2406/repeat-purchase-ui)
+
+- ⚡ **FastAPI Backend (Swagger Docs):**  
+  👉 [Repeat Purchase API](https://dikshajain2406-repeat-purchase-api.hf.space/docs)  
+  👉 [Health Check](https://dikshajain2406-repeat-purchase-api.hf.space/health)
+
+---
+
+## 🧠 Project Logic
+
+This project estimates whether a customer is likely to **buy again**, using a hybrid of **RFM (Recency, Frequency, Monetary)** and behavioral features.
+
+### ✨ Features used
+- `recency_days`: days since last purchase  
+- `orders`: total completed orders  
+- `monetary`: total spend  
+- `tenure_days`: customer lifetime (days)  
+- `avg_discount`: average discount fraction (0–1)  
+- `return_rate`: fraction of orders returned (0–1)  
+- `category_diversity`: number of distinct product categories purchased  
+
+### ⚡ Workflow
+1. **API (FastAPI)**  
+   - Endpoints:  
+     - `POST /predict` → predict one customer  
+     - `POST /predict_batch` → score many customers at once  
+     - `GET /health` → status check  
+   - Inference uses a simple, explainable baseline (logistic scoring) with transparent weights.  
+
+2. **UI (Gradio)**  
+   - Upload your **customer CSV** → get repeat probability for each row.  
+   - Instant **charts & tables**:  
+     - Probability distribution histogram  
+     - Decile segmentation (top 10% vs bottom 10%)  
+   - Download the **scored CSV** for downstream use.  
+   - Includes **CSV template & example generator** so recruiters can try without setup.  
+   - Pastel beauty/fashion theme 🌸 for a recruiter-friendly look.  
+
+---
+
+## 📂 Repo Structure
+repeat-purchase-api/ # FastAPI backend
+├── main.py # API routes
+├── schemas.py # Input validation (Pydantic)
+├── inference.py # Scoring logic
+├── requirements.txt # API dependencies
+└── Dockerfile # For Hugging Face deployment
+
+ui/ # Gradio frontend
+├── app.py # Gradio app (calls API)
+└── requirements.txt # UI dependencies
+
+models/ # (Optional) trained models
+README.md # Project overview
+.gitignore
+
+---
+
+## 📖 How to Use
+
+### 🌐 Option A — Use Live Demos
+1. Open the [Gradio UI](https://huggingface.co/spaces/dikshajain2406/repeat-purchase-ui).  or you can also use a csv from my data_samples folder that is customer_features.csv.
+2. Generate/download the **example CSV**.  
+3. Upload & score it → see predictions, charts, and download scored results.  
+
+### 🖥️ Option B — Run Locally
+Clone the repo:
+```bash
+git clone https://github.com/dikshajain24/repeat-purchase-predictor.git
+cd repeat-purchase-predictor
+
+Run API:
+cd repeat-purchase-api
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+Run UI:
+cd ui
+pip install -r requirements.txt
+python app.py
+Open http://127.0.0.1:7860
+
+## 🎨 Screenshots
+
+These screenshots highlight the **Repeat Purchase Prediction App** and its **API integration** hosted on Hugging Face:  
+- 🔗 [UI App](https://huggingface.co/spaces/dikshajain2406/repeat-purchase-ui)  
+- 🔗 [API Docs](https://dikshajain2406-repeat-purchase-api.hf.space/docs#/default/predict_predict_post)  
+
+---
+
+<!-- Main Highlight -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/190c6905-6d8d-4663-8e94-bb39762c2049" 
+       alt="Main dashboard overview of Repeat Purchase Prediction App" width="850"/>
+</p>
+<p align="center"><em>Homepage view of the Repeat Purchase Prediction App</em></p>
+
+<!-- Side by side 1 -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/62cfc24d-4ba9-47cc-8323-1aa5c4ee4f57" 
+       alt="Customer purchase trend visualization" width="420"/>
+  <img src="https://github.com/user-attachments/assets/7ded0114-a359-4974-a470-6ad3fef64c9f" 
+       alt="Customer-level repeat purchase data table" width="420"/>
+</p>
+<p align="center"><em>Customer purchase trends and filtered repeat purchase dataset</em></p>
+
+<!-- Side by side 2 -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c48ea45f-2718-48b7-9ff3-48ba3d0294b0" 
+       alt="Product-level repeat purchase analysis" width="420"/>
+  <img src="https://github.com/user-attachments/assets/c65c65dd-36c6-4568-a125-298712d5c784" 
+       alt="Comparison of purchase frequencies and trends" width="420"/>
+</p>
+<p align="center"><em>Product-level analytics and repeat purchase frequency analysis</em></p>
+
+<!-- Final Highlight -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1acf763f-3ed1-4519-bd12-9cf0ec5fc1c9" 
+       alt="Prediction results summary with insights" width="850"/>
+</p>
+<p align="center"><em>Prediction results and key insights generated by the app</em></p>
+
+
+🛠️ Tech Stack
+
+Backend: FastAPI, Pydantic, Uvicorn
+
+Frontend: Gradio, Pandas, Matplotlib
+
+Deployment: Hugging Face Spaces (free)
+
+ML logic: Logistic-style scoring with RFM + behavior features
+
+👩‍💻 Author
+Diksha Jain
+🌐 GitHub: dikshajain24
+💼 LinkedIn: https://www.linkedin.com/in/diksha-jain-621923200/
+✨ Helping brands identify customers most likely to buy again — with a recruiter-friendly, aesthetic demo.
+
