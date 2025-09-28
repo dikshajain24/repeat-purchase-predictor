@@ -143,11 +143,14 @@ Deployment: Hugging Face Spaces (free)
 
 ML logic: Logistic-style scoring with RFM + behavior features
 
+
+
 👩‍💻 Author
 Diksha Jain
 🌐 GitHub: dikshajain24
 💼 LinkedIn: https://www.linkedin.com/in/diksha-jain-621923200/
 ✨ Helping brands identify customers most likely to buy again — with a recruiter-friendly, aesthetic demo.
+
 
 
 
