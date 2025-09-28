@@ -136,14 +136,11 @@ python app.py
 Open http://127.0.0.1:7860
 
 🛠️ Tech Stack
-
 Backend: FastAPI, Pydantic, Uvicorn
-
 Frontend: Gradio, Pandas, Matplotlib
-
 Deployment: Hugging Face Spaces (free)
-
 ML logic: Logistic-style scoring with RFM + behavior features
+
 
 
 
@@ -152,6 +149,7 @@ Diksha Jain
 🌐 GitHub: dikshajain24
 💼 LinkedIn: https://www.linkedin.com/in/diksha-jain-621923200/
 ✨ Helping brands identify customers most likely to buy again — with a recruiter-friendly, aesthetic demo.
+
 
 
 
